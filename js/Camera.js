@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 export class Camera {
 
-	constructor( renderer ) {
+	constructor() {
 
 		this.camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.1, 60 );
 

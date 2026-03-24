@@ -184,7 +184,7 @@ async function init() {
 
 	dirLight.target = vehicleGroup;
 
-	const cam = new Camera( renderer );
+	const cam = new Camera();
 	cam.targetPosition.copy( vehicle.spherePos );
 
 	const controls = new Controls();

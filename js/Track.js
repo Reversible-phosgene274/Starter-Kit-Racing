@@ -5,6 +5,8 @@ export const ORIENT_DEG = { 0: 0, 10: 180, 16: 90, 22: 270 };
 export const CELL_RAW = 9.99;
 export const GRID_SCALE = 0.75;
 
+const _dummy = new THREE.Object3D();
+
 export const TRACK_CELLS = [
 	[ -3, -3, 'track-corner',   16 ],
 	[ -2, -3, 'track-straight', 22 ],
@@ -224,8 +226,6 @@ export function buildTrack( scene, models, customCells ) {
 
 		}
 
-		const _dummy = new THREE.Object3D();
-
 		function createInstances( src, positions ) {
 
 			if ( positions.length === 0 || ! src ) return;
@@ -344,7 +344,7 @@ export function placePiece( models, key, gx, gz, orient ) {
 	const piece = src.clone();
 	piece.position.set( ( gx + 0.5 ) * CELL_RAW, 0.5, ( gz + 0.5 ) * CELL_RAW );
 
-	const deg = ORIENT_DEG[ orient ] || 0;
+	const deg = ORIENT_DEG[ orient ] ?? 0;
 	piece.rotation.y = THREE.MathUtils.degToRad( deg );
 
 	return piece;
